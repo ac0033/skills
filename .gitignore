@@ -1,0 +1,2 @@
+# 父仓库的工具发现目录（white-box-explainer 的重复登记），不进本仓库
+.agents/
