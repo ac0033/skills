@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "project_id": "example-software",
+  "source_roots": [
+    "."
+  ],
+  "output_dir": "reporting"
+}
