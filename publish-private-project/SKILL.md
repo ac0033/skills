@@ -18,7 +18,7 @@ description: "把一个此前私有开发的项目首次公开到 GitHub，并�
 
 ## 二、四路核查（并行做，分别出清单）
 
-每一路都要给出 `文件:行号 + 原文` 的清单，并标严重级别：必须移除 / 应当移除 / 无碍。清单细则见 [references/audit-checklist.md](references/audit-checklist.md)。
+每一路都要给出 `文件:行号 + 原文` 的清单，并标严重级别：必须移除 / 应当移除 / 无碍。前三路的核查规则见 submit 技能的 [checklist.md](../submit/checklist.md) 第一至三节；严重级别、常见误判与 CHANGELOG 改写规则见 [references/audit-checklist.md](references/audit-checklist.md)。
 
 | 路 | 查什么 | 典型藏身处 |
 |---|---|---|
@@ -52,7 +52,7 @@ description: "把一个此前私有开发的项目首次公开到 GitHub，并�
 
 1. 本地：lint 干净、测试全绿（含卫生测试；故意塞一个本机路径确认它会红）、前端构建通过、安装包在干净环境里装上并跑最小演示。
 2. 远端：CI 两平台绿；Release 页有安装包且标 pre-release；网页搜索仓库内的敏感串为零；提交作者显示匿名邮箱。
-3. 主页：项目表的链接可点，状态说明在表下。
+3. 主页：按 submit 技能 [checklist.md](../submit/checklist.md) 第十节同步个人主页；项目表的链接可点，状态说明在表下。
 4. 本机：编码助手的记忆 / 交接记录更新为"私人材料在 `.notes/`、仓库地址、发布流程"，以后不要再把本机信息写回仓库。
 
 ## 报告格式
