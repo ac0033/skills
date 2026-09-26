@@ -7,7 +7,7 @@
 | 入口 | 适用任务 | 配套内容 |
 |---|---|---|
 | [clear-reporting](clear-reporting/README.md) | 把已有结果写成有依据、易理解的汇报 | 自包含 Skill、材料格式、示例、Python 检查程序与测试，可选插件包装 |
-| [human-writing](human-writing/SKILL.md) | 中文写作、修订与语言风格检查 | 场景参考、修订规范与 `check_prose.py` |
+| [human-writing](human-writing/SKILL.md) | 中文写作、修订与语言风格检查 | 场景参考、修订规范与 `check_prose.py`；另有可直接粘贴给聊天产品的[精简版](human-writing/portable/human-writing-lite.md) |
 | [structured-writing](structured-writing/SKILL.md) | 文章结构、论证与量化表达 | 金字塔原则、模板和完整示例 |
 | [systems-thinking](systems-thinking/SKILL.md) | 系统性构思、计划与讲解，统一用"层次→维度→板块→具体事项"组织 | 框架指南、写作与讲解规范、模板和示例 |
 | [cognitive-receiver](cognitive-receiver/SKILL.md) | 向用户讲解复杂内容时降低认知负荷，维护双方共通的概念 | 单文件 Skill |
