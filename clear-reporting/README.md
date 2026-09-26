@@ -26,7 +26,6 @@
 - [正反例](skills/clear-reporting/references/examples.md)：软件、分析、研究三类。
 - [可运行样例](skills/clear-reporting/examples/software/bundle.json)：教学用虚构数据。
 - [实现与验证记录](VALIDATION.md)：已测内容和未测限制。
-- plan.md：设计历史，实际实现范围以本 README 和 VALIDATION.md 为准。
 
 ## 本地运行
 

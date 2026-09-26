@@ -8,3 +8,5 @@
 /dist/
 # 含本机路径与会话原文的验证原始记录（公开说明见 clear-reporting/VALIDATION.md）
 clear-reporting/checks/
+# 开发者私人材料（设计稿、交接记录等）
+.notes/
