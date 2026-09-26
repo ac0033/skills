@@ -10,3 +10,6 @@
 clear-reporting/checks/
 # 开发者私人材料（设计稿、交接记录等）
 .notes/
+
+# tidy-docs 运行时记录的本机状态
+tidy-docs/state/
