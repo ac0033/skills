@@ -1,2 +1,10 @@
 # 父仓库的工具发现目录（white-box-explainer 的重复登记），不进本仓库
 .agents/
+
+# 仅本地保留、不随公开仓库发布
+# 个人助手的工作记录
+.workbuddy/
+# 根目录打包产物（与已提交的源码重复）
+/dist/
+# 含本机路径与会话原文的验证原始记录（公开说明见 clear-reporting/VALIDATION.md）
+clear-reporting/checks/

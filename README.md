@@ -9,6 +9,11 @@
 | [clear-reporting](clear-reporting/README.md) | 把已有结果写成有依据、易理解的汇报 | 自包含 Skill、材料格式、示例、Python 检查程序与测试，可选插件包装 |
 | [human-writing](human-writing/SKILL.md) | 中文写作、修订与语言风格检查 | 场景参考、修订规范与 `check_prose.py` |
 | [structured-writing](structured-writing/SKILL.md) | 文章结构、论证与量化表达 | 金字塔原则、模板和完整示例 |
+| [systems-thinking](systems-thinking/SKILL.md) | 系统性构思、计划与讲解，统一用"层次→维度→板块→具体事项"组织 | 框架指南、写作与讲解规范、模板和示例 |
+| [cognitive-receiver](cognitive-receiver/SKILL.md) | 向用户讲解复杂内容时降低认知负荷，维护双方共通的概念 | 单文件 Skill |
+| [goal-driven-development](goal-driven-development/SKILL.md) | 以终为始开发功能：目标与标准 → 问题拆解 → 借鉴论文与开源 → 验证集迭代 → 测试集验收 | 目标与标准、拆解、来源筛选、验证与测试的参考，以及计划/日志/报告模板 |
+| [data-science-project](data-science-project/SKILL.md) | 数据科学项目的全周期规划、执行、验收与解释 | 工作流、数据审查、EDA 与验收报告规范 |
+| [publish-private-project](publish-private-project/SKILL.md) | 把私有项目首次公开到 GitHub：隐私核查、清理、全新历史、发布配套 | 核查清单与仓库配套模板 |
 | [white-box-explainer](https://github.com/ac0033/white-box-explainer) | 讲清代码、数据科学与机器学习项目 | 独立仓库，以 Git submodule 收录 |
 | [Humanizer-zh](https://github.com/ac0033/Humanizer-zh) | 编辑中文文本中的常见 AI 写作痕迹 | 第三方技能的个人 fork，以 Git submodule 收录 |
 | [语言风格 System Prompt](语言风格%20System%20Prompt.md) | 中文表达风格约定 | 单文件提示词 |
