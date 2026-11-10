@@ -9,7 +9,7 @@
   "homepage": "https://github.com/ac0033/skills",
   "repository": "https://github.com/ac0033/skills",
   "license": "MIT (own content); bundled third-party content keeps its own licenses, see THIRD_PARTY_NOTICES.md",
-  "skills": "./skills/",
+  "skills": "./skills/product-dev/",
   "interface": {
     "displayName": "Product Dev",
     "shortDescription": "从想法到交付的产品开发流程：一个入口，自动分流。",
