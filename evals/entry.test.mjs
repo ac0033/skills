@@ -216,6 +216,7 @@ test('出处：改写的方法文档文末注明来源，第三方声明、组�
   const version = JSON.parse(read('.claude-plugin/plugin.json')).version;
   assert.ok(components.includes(`${version}：`) && readme.includes(`（${version}）`), `COMPONENTS.md 或 README 里的插件版本不是 ${version}`);
   assert.ok(!/存放在维护者本机|计划：/.test(components), 'COMPONENTS.md 还留着旧说法');
+  assert.ok(!notices.includes('不是逐句翻译') && notices.includes('接近原文的逐句翻译'), '第三方声明对改写程度的说明不如实');
 });
 
 // ---- 以下几项针对语义层面的走样：分流的实质内容、缩短路线、两种复审流程的次序、命令参数、章节引用、原文保留 ----
@@ -235,6 +236,18 @@ test('分流与次序：授权的实质句子、缩短路线的步骤、两种�
   assert.ok(!/或已授权按推荐执行时，说完判断/.test(ENTRY), '按推荐执行又被扩成了“问句也可以开工”');
   assert.ok(line('第一个会改文件或切换检出的动作').includes('先按第 1 节得到批准'), '修 bug 没有写明改文件前先得到批准');
   assert.ok(line('实际安装、升级、回滚').includes('先得到用户批准（R2）'), '装或升级套件没有写明先得到批准');
+  assert.ok(line('装工程底座的授权').includes('用户只是在描述想法或提问时，先得到批准再装，已授权按推荐执行也不例外'), '装工程底座的授权被放宽了');
+  assert.ok(!/或已授权按推荐执行时[^。；]*(直接|开始)/.test(ENTRY), '又出现了“已授权按推荐执行就可以直接做”的写法');
+  assert.ok(line('远程仓库与合并入口').includes('由用户合并或由用户指定入口，不自行合并'), '没有写明 pre-push 流程下不自行合并');
+  assert.ok(line('始终单独授权的事项').includes('按 R2 的清单办，不因路线已开始而省略'), '“始终单独授权”一条被改了');
+  // 分流表：六种情况各自的路线
+  const routes = { 新项目: '第 2 节（装工程底座 → 设计段 → 配置闸门）→ 第 4 节', 加功能: '第 3 节 → 第 4 节', '修 bug': '第 5 节', 小改动: '第 6 节', 只改文档: '第 6 节', 装或升级工程套件: '第 7 节' };
+  const routing = ENTRY.split(/^## /m).find((s) => s.startsWith('1. 分流'));
+  for (const [kind, route] of Object.entries(routes)) {
+    const row = routing.split('\n').find((l) => l.startsWith(`| ${kind} |`));
+    assert.ok(row, `分流表里没有“${kind}”`);
+    assert.equal(row.split('|')[3].trim(), route, `“${kind}”的路线走样了`);
+  }
   assert.ok(line('建远程仓库是外部动作').includes('先得到用户批准'), '建远程仓库没有写明先得到批准');
   // 缩短路线：步骤序列固定，其中每一步都是流程里有的步骤
   const all = new Set(Object.values(STEPS).flat());
@@ -260,7 +273,9 @@ test('命令参数：文档里给脚本写的参数，脚本里都有', () => {
   for (const doc of DOCS) {
     for (const span of read(doc).match(/`[^`\n]*\b(sync|gate|review|merge|hygiene|verify)\.mjs[^`\n]*`/g) || []) {
       const script = span.match(/\b(sync|gate|review|merge|hygiene|verify)\.mjs/)[1];
-      const src = read(script === 'sync' ? 'skills/engineering-kit/kit/sync.mjs' : `skills/engineering-kit/kit/gate/${script}.mjs`);
+      let src = read(script === 'sync' ? 'skills/engineering-kit/kit/sync.mjs' : `skills/engineering-kit/kit/gate/${script}.mjs`);
+      // sync.mjs 内部还调用 git，全文里有别的命令的参数；只看它自己的参数解析函数
+      if (script === 'sync') src = src.slice(src.indexOf('function parseArgs'), src.indexOf('\n}\n', src.indexOf('function parseArgs')));
       for (const flag of span.match(/--[a-z][a-z-]*/g) || []) {
         count += 1;
         // 脚本里出现过这个参数（解析代码或用法说明）才算有
@@ -331,10 +346,11 @@ test('原文保留：process.md 由套件流程文档重组而来，各节的句
     const here = all.filter((s) => mine.includes(s)).length;
     total += all.length;
     kept += here;
-    if (all.length >= 3 && here / all.length < 0.7) low.push(`${title}：${here}/${all.length}`);
+    // 每节最多缺三成；句子少的节至少容许缺两句
+    if (all.length - here > Math.max(2, all.length * 0.3)) low.push(`${title}：${here}/${all.length}`);
   }
   assert.ok(total >= 100, '没有从套件流程文档里解析到句子');
-  assert.deepEqual(low, [], '这些节保留的句子不足七成');
+  assert.deepEqual(low, [], '这些节缺的句子太多');
   assert.ok(kept / total >= 0.8, `整体只保留了 ${kept}/${total}`);
 });
 

@@ -78,6 +78,9 @@ test('手写保护：生成部分落在手写路径或它的上级目录时构�
   assert.throws(() => assertNotHandwritten(part('.claude-plugin', ['plugin.json'], true)), /手写路径/);
   assert.doesNotThrow(() => assertNotHandwritten(part('skills/engineering-kit', ['SKILL.md'])));
   assert.doesNotThrow(() => assertNotHandwritten(part('agents', ['code-reviewer.md'], true)));
+  // 保护要真的接在写入之前：构建脚本写每个部分时先调用它
+  const source = fs.readFileSync(path.join(ROOT, 'tools/build-plugin.mjs'), 'utf8');
+  assert.match(source, /const write = \(part\) => \{\s*const dest = [^\n]*\n\s*assertNotHandwritten\(part\);/, '构建写入前没有调用手写保护');
 });
 
 test('锁文件：每个部分的文件数和内容哈希与锁文件相符，子代理目录没有来历不明的文件', () => {
