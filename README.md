@@ -28,7 +28,7 @@ cd skills
 
 ### 综合插件收录的第三方内容
 
-`product-dev/` 里收录了下列项目的原文，除文件头的可见性字段外不做修改。逐项的来源、版本、改动、版权声明和许可全文见 [product-dev/THIRD_PARTY_NOTICES.md](product-dev/THIRD_PARTY_NOTICES.md)。
+`product-dev/` 里收录了下列项目的原文。我们只改了两个技能文件头的可见性字段（并加一行改动说明），没有收录 archify 的示例成品页和 impeccable 的会话钩子，其余原样。impeccable 的启动脚本首次运行时会联网下载它的引擎程序，archify 带有联网的更新检查，详见声明。逐项的来源、版本、改动、版权声明和许可全文见 [product-dev/THIRD_PARTY_NOTICES.md](product-dev/THIRD_PARTY_NOTICES.md)。
 
 | 项目 | 收录内容 | 许可 |
 |---|---|---|

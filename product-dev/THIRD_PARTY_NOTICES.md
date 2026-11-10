@@ -14,10 +14,12 @@
   - [skills/impeccable/](skills/impeccable/SKILL.md)：取自上游已构建的 `plugin/skills/impeccable/`
   - [skills/impeccable/LICENSE](skills/impeccable/LICENSE)、[skills/impeccable/NOTICE.md](skills/impeccable/NOTICE.md)：取自上游仓库根目录，原样保留
   - `agents/impeccable-asset-producer.md`、`agents/impeccable-documenter.md`、`agents/impeccable-finish-reviewer.md`、`agents/impeccable-manual-edit-applier.md`：取自上游 `plugin/agents/`
-- 我们的改动：`skills/impeccable/SKILL.md` 文件头的 `user-invocable` 由 `true` 改为 `false`（不出现在命令菜单，由入口技能加载），并加了一行说明改动的注释。其余文件原样。上游插件的会话钩子（`plugin/hooks/`）没有收录。
+- 我们的改动：`skills/impeccable/SKILL.md` 文件头的 `user-invocable` 由 `true` 改为 `false`（不出现在命令菜单，由入口技能加载），并加了一行说明改动的注释。其余文件与上游检出的内容相同（文本文件用 LF；`scripts/impeccable.cmd` 按上游的规定用 CRLF）。上游插件的会话钩子（`plugin/hooks/`）没有收录。
+- 运行时的联网行为（上游原有，我们没有改）：启动脚本 `skills/impeccable/scripts/impeccable`（Windows 上是 `impeccable.cmd`）在本机找不到引擎程序时，会从 <https://github.com/pbakaus/impeccable/releases> 下载对应版本的可执行文件到用户目录的 `.impeccable/`，按 `scripts/engine-checksums.txt` 校验后运行。安装插件本身不会触发下载。
 - impeccable 自己引用的第三方内容（摘自它的 `NOTICE.md`，该文件里的 `skill/reference/` 对应本插件的 `skills/impeccable/reference/`）：
   - `reference/ios.md` 和 `reference/android.md` 提炼自 ehmo 的 platform-design-skills（Apple Human Interface Guidelines 与 Material Design 3 的规则），由 impeccable 改写
-  - 原作品：<https://github.com/ehmo/platform-design-skills>；原许可：MIT；作者：ehmo
+  - 原作品：<https://github.com/ehmo/platform-design-skills>；原许可：MIT；作者：ehmo。该仓库 LICENSE 的版权行是 `Copyright (c) 2026`，没有写名字（2026-11-10 查阅）
+- impeccable 技能目录里还带有一个上游 `NOTICE.md` 没有列出的第三方库：`skills/impeccable/scripts/modern-screenshot.umd.js`，是 [modern-screenshot](https://github.com/qq15725/modern-screenshot) 的打包文件（文件内没有标版本和许可头）。该项目的许可是 MIT，版权行是 `Copyright (c) 2021-present wxm`（2026-11-10 查阅其仓库 LICENSE）
 
 ## 2. archify
 
@@ -35,11 +37,12 @@
   - `skills/archify/SKILL.md` 文件头加了 `user-invocable: false`（不出现在命令菜单，由入口技能加载）和一行说明改动的注释
   - 没有收录 `examples/` 下 15 个 `.html` 示例成品页（约 12.8MB）；它们是示例输入渲染后的结果，只被上游重新生成示例的脚本 `scripts/render-examples.mjs` 引用。示例输入（`examples/*.json`）照常收录
   - 其余文件原样
+- 运行时的联网行为（上游原有，我们没有改）：`scripts/check-update.mjs` 会按 `skill-release.json` 里的地址查询 archify 有没有新版本，说明见 `skills/archify/references/update-awareness.md`
 
 ## 3. feature-dev
 
 - 来源：<https://github.com/anthropics/claude-plugins-official>（`plugins/feature-dev`）
-- 版本：1.0.1
+- 版本：1.0.1（本机存档取自 Claude Code 的插件缓存，不是 git 检出；安装记录里对应的市场仓库提交是 f8c5e7a）
 - 原许可：Apache-2.0
 - 版权声明：上游的 LICENSE 文件没有填写版权人；插件清单的作者署名是 Anthropic
 - 收录位置与取自：`agents/code-explorer.md`、`agents/code-architect.md`、`agents/code-reviewer.md`，取自上游 `agents/`
@@ -233,7 +236,7 @@
 
 ### MIT License
 
-适用于：platform-design-skills（版权人 ehmo）、archify 的历史 MIT 授权（版权人见 `skills/archify/LICENSE-MIT`）、Pele（版权人见 `skills/archify/explainer/vendor/pele/LICENSE`）。
+适用于：platform-design-skills（版权行见上文第 1 项）、modern-screenshot（版权行见上文第 1 项）、archify 的历史 MIT 授权（版权人见 `skills/archify/LICENSE-MIT`）、Pele（版权人见 `skills/archify/explainer/vendor/pele/LICENSE`）。
 
 ```text
 MIT License

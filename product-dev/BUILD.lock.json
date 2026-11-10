@@ -76,7 +76,10 @@
       ],
       "changes": "SKILL.md 头部 user-invocable 由 true 改为 false，并加一行改动说明注释；其余文件原样",
       "fileCount": 60,
-      "sha256": "6cea75fdf7b9f775e90708241e65456e3689e1502a3fdc981e80d87f432eda03"
+      "sha256": "6cea75fdf7b9f775e90708241e65456e3689e1502a3fdc981e80d87f432eda03",
+      "executable": [
+        "scripts/impeccable"
+      ]
     },
     {
       "id": "impeccable-agents",
@@ -115,7 +118,10 @@
       ],
       "changes": "SKILL.md 头部加 user-invocable: false 和一行改动说明注释；排除示例成品页；其余文件原样",
       "fileCount": 191,
-      "sha256": "844188269fc2d0b1b9b96fdbf2cefd0be8e7ac3c148d54d615f66d52e8266b5c"
+      "sha256": "844188269fc2d0b1b9b96fdbf2cefd0be8e7ac3c148d54d615f66d52e8266b5c",
+      "executable": [
+        "bin/archify.mjs"
+      ]
     },
     {
       "id": "feature-dev-agents",
