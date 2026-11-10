@@ -249,6 +249,15 @@ export function planBundle({ root, bundleRoot, bundle, force = false, hooks = tr
   // 技术栈预设只在首次创建配置时生效（配置之后由项目维护）；脚手架文件只在不存在时创建。
   const newCfgRaw = preset ? applyPreset(templateRaw, preset) : templateRaw;
   if (preset && cfgRaw) messages.push('engineering.config.json 已存在，--profile 只在首次创建时生效；技术栈设置请手动修改该文件');
+  // 项目配置归项目所有，同步不改它；但新规则块和设计文档约定依赖新默认值，旧配置缺了要明确提示，不能让规则和闸门各说各话。
+  if (cfgRaw) {
+    const cur = normalizeConfig(cfgRaw);
+    const tpl = normalizeConfig(templateRaw);
+    const missStatus = tpl.hygiene.statusValues.filter((v) => !cur.hygiene.statusValues.includes(v));
+    const missStages = tpl.layout.stages.filter((s) => !cur.layout.stages.includes(s));
+    if (missStatus.length) messages.push(`升级提示：engineering.config.json 的 hygiene.statusValues 缺少 ${missStatus.join('、')}（规则 R5 会用到）；同步不改项目配置，请手动加上`);
+    if (missStages.length) messages.push(`升级提示：engineering.config.json 的 layout.stages 与当前默认不同，缺少 ${missStages.join('、')}。继续沿用现有阶段目录也可以，但跨阶段文件（项目状态、记录、实施交接）需要一个合法位置：请至少加上 ${tpl.layout.stages[0]}，或把这些文件写进豁免表`);
+  }
   if (preset) {
     for (const [rel, content] of Object.entries(scaffoldFiles(preset, projectName))) {
       const abs = path.join(root, rel);

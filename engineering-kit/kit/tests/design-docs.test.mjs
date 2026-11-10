@@ -41,6 +41,27 @@ test('设计文档：按约定位置和状态写入后，巡检零错误、推�
   assert.deepEqual(report.findings.error, [], JSON.stringify(report.findings.error));
 });
 
+test('升级：旧配置缺少新状态值和总览目录时，同步给出升级提示且不改项目配置', () => {
+  const root = installedProject();
+  const cfg = JSON.parse(read(root, 'engineering.config.json'));
+  cfg.layout.stages = ['01-原型', '02-需求分析', '03-架构设计', '04-开发', '05-测试', '06-预发部署'];
+  cfg.hygiene.statusValues = ['draft', 'active', 'accepted', 'superseded', 'done', 'archived'];
+  const before = `${JSON.stringify(cfg, null, 2)}
+`;
+  write(root, 'engineering.config.json', before);
+  const res = syncKit({ target: root, hooks: false });
+  assert.equal(res.ok, true, JSON.stringify(res));
+  assert.ok(res.messages.some((m) => /升级提示/.test(m) && /statusValues/.test(m) && /review/.test(m)), JSON.stringify(res.messages));
+  assert.ok(res.messages.some((m) => /升级提示/.test(m) && /layout.stages/.test(m) && /00-总览/.test(m)), JSON.stringify(res.messages));
+  assert.equal(read(root, 'engineering.config.json'), before);
+});
+
+test('升级：配置已是当前默认时不给升级提示', () => {
+  const root = installedProject();
+  const res = syncKit({ target: root, hooks: false });
+  assert.ok(!res.messages.some((m) => /升级提示/.test(m)), JSON.stringify(res.messages));
+});
+
 test('设计文档：旧位置 docs/design/ 被推送核对拦截，中文状态值被巡检报错', () => {
   const root = installedProject();
   write(root, 'docs/design/PRD.md', '状态：draft\n');

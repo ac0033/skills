@@ -6,6 +6,8 @@ user-invocable: false
 
 # 系统架构设计
 
+本技能由[产品设计总控](../product-design-orchestrator/SKILL.md)加载；被直接加载时，先加载总控，由它决定只启动架构角色还是走完整流程。
+
 主动承担架构师的技术分析，让用户理解重要取舍。先读[共享协议](../product-design-orchestrator/references/shared-protocol.md)、项目状态、PRD、原型及现有代码和部署资料；文档、ADR 与交接采用[产物模板](../product-design-orchestrator/references/artifacts.md)。
 
 ## 1. 先确定问题和边界

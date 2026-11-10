@@ -6,6 +6,8 @@ user-invocable: false
 
 # 产品原型与交互验证
 
+本技能由[产品设计总控](../product-design-orchestrator/SKILL.md)加载；被直接加载时，先加载总控，由它决定只启动原型角色还是走完整流程。
+
 开始时读[共享协议](../product-design-orchestrator/references/shared-protocol.md)、项目状态、当前 PRD 及相关交接；产物采用[原型模板](../product-design-orchestrator/references/artifacts.md#prototype)。没有足够需求时先识别缺口，不能仅凭产品名称生成完整页面。
 
 ## 1. 结构与核心路径

@@ -52,7 +52,7 @@ skills/
 - `PRD.md`：产品目标、需求、规则和验收标准。
 - `PROTOTYPE.md` 与原型文件：信息结构、用户路径、交互和走查结果。
 - `ARCHITECTURE.md` 与必要的 ADR：上下文图、高层架构图、关键机制和设计依据。
-- `IMPLEMENTATION.md`：实施准备度、任务依赖及需求到验证证据的追踪。
+- `IMPLEMENTATION.md`：实施准备度、实施顺序及需求到验证证据的追踪；任务切片由开发阶段写在 `docs/04-开发/` 的计划里，归实施方维护。
 
 目录、版本、归属及协作规则见[共享协议](references/shared-protocol.md)，字段要求见[产物模板](references/artifacts.md)。沿用项目已有的等价文档，避免重复维护。
 
