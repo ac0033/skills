@@ -3,7 +3,7 @@
 完整流程与细则：engineering-kit 技能的 `references/process.md`（按需读取）。
 
 流程地图：
-1. 开工：从最新主干新建分支；列出分支与工作树，确认没有遗留的未提交改动。
+1. 开工：从最新主干新建分支；列出分支与工作树，确认没有遗留的未提交改动。定好执行位置与顺序：能在云端会话做的开发和测试放云端；创造性工作优先、排在用户在场时；全量测试等重复性工作攒成整块，排在用户不在场时。
 2. 方案：中高风险先澄清并取得确认，写功能契约（docs/_templates/feature-contract.md）。
 3. 开发：测试先行；源文件要有业务注释；新顶层目录须在白名单内。
 4. 闸门：`node scripts/engineering/gate/gate.mjs` 通过后，才复审或推送。复审流程看 engineering.config.json 的 `modules.gate.reviewFlow`（`pre-push` 默认，或 `pr`）。
