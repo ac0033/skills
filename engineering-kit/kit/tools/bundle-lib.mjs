@@ -254,9 +254,10 @@ export function planBundle({ root, bundleRoot, bundle, force = false, hooks = tr
     const cur = normalizeConfig(cfgRaw);
     const tpl = normalizeConfig(templateRaw);
     const missStatus = tpl.hygiene.statusValues.filter((v) => !cur.hygiene.statusValues.includes(v));
-    const missStages = tpl.layout.stages.filter((s) => !cur.layout.stages.includes(s));
+    // 阶段目录可以沿用项目自己的名称，只有跨阶段文件用的总览目录是必需的，所以只提示它，避免每次同步都重复提示
+    const overview = tpl.layout.stages[0];
     if (missStatus.length) messages.push(`升级提示：engineering.config.json 的 hygiene.statusValues 缺少 ${missStatus.join('、')}（规则 R5 会用到）；同步不改项目配置，请手动加上`);
-    if (missStages.length) messages.push(`升级提示：engineering.config.json 的 layout.stages 与当前默认不同，缺少 ${missStages.join('、')}。继续沿用现有阶段目录也可以，但跨阶段文件（项目状态、记录、实施交接）需要一个合法位置：请至少加上 ${tpl.layout.stages[0]}，或把这些文件写进豁免表`);
+    if (!cur.layout.stages.includes(overview)) messages.push(`升级提示：engineering.config.json 的 layout.stages 里没有 ${overview}。跨阶段文件（项目状态、记录、实施交接）需要这个位置：请手动加上并登记到 docs/README.md；其余阶段目录可以沿用现有名称`);
   }
   if (preset) {
     for (const [rel, content] of Object.entries(scaffoldFiles(preset, projectName))) {
