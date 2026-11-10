@@ -2,7 +2,9 @@
 
 入口技能各步骤的操作细则，按需读对应的节。贯穿全程的规则只写在工程流程规则块里（R1–R10），本文只写各步怎么做，引用编号，不复述。能用脚本或钩子强制的，就不靠自觉。
 
-命令里的 `<项目>` 指项目根目录；套件的闸门脚本装在 `<项目>/scripts/engineering/gate/` 下。套件的安装、升级、漂移检查、回滚、变更集与发布的命令只写在内部技能 [engineering-kit](../../engineering-kit/SKILL.md) 的第 1 到 4 节。
+本文由工程套件的流程文档重组而来，按入口的步骤排列；经入口走流程时读本文。两者说法不同时，以项目自己的规则和闸门的实际判定为准（R1），并把不同之处报告出来。
+
+命令里的 `<项目>` 指项目根目录；套件的闸门脚本装在 `<项目>/scripts/engineering/gate/` 下。套件的安装、升级、漂移检查、回滚、变更集与发布的命令只写在内部技能 [engineering-kit](../../engineering-kit/SKILL.md) 的第 1 到 4 节；其中回滚、变更集与发布要在套件源仓库的检出里做，见入口第 7 节。
 
 ## 授权边界
 
@@ -60,6 +62,8 @@ R10 的展开。目的：用户在场的时间和本机的资源，留给需要�
 | `modules.review.reviewers` | 加上 `product-dev:code-reviewer`，否则用它做的复审登记不了（默认名单见 [review.md](review.md) 第 1 节） |
 | `modules.gate.reviewFlow` | 默认 `pre-push`；有 GitHub 远程、已登录的 `gh` 且 PR 上有 CI 检查的项目可以改成 `pr`（建议项，由用户决定或按授权采用推荐） |
 
+同一步还要定两件事，都由用户决定：要不要建远程仓库和 CI（建远程仓库是外部动作，先得到批准；不建的话“PR 与 CI”一步做不了，要如实写未执行）；`pre-push` 流程下由谁、经哪个入口合并，定了就写进项目的 AGENTS.md。安装时没加 `--profile` 的项目没有脚手架，包清单、测试框架等按选定的技术栈自己建，默认的测试命令也要相应改掉。
+
 配完验证闸门拦得住：临时放一个必然失败的测试，跑 `node scripts/engineering/gate/gate.mjs`，确认它报失败；撤掉这个测试再跑一次，确认通过。两次输出都留作证据。改动里有代码文件、却没有任何文件匹配 `sourceGlobs` 与 `testGlobs` 时闸门会报错，多半是这两项没按项目改。
 
 ## 开发细则
@@ -98,7 +102,7 @@ R10 的展开。目的：用户在场的时间和本机的资源，留给需要�
 
 由 `engineering.config.json` 的 `modules.gate.reviewFlow` 决定，命令都在项目的 `scripts/engineering/gate/` 下。
 
-- `pre-push`（默认）：`gate.mjs` 通过后由独立子代理复审，`review.mjs pass|fail --reviewer <名> --report <报告> --summary "<一句话>"` 登记；推送时核对静态检查、测试记录和复审记录，三者都绑定当前代码树。套件不提供合并入口，钩子拒绝直接 `gh pr merge`；合并按项目约定的入口，并等 CI 全部通过。
+- `pre-push`（默认）：`gate.mjs` 通过后由独立子代理复审，`review.mjs pass|fail --reviewer <名> --report <报告> --summary "<一句话>"` 登记；推送时核对静态检查、测试记录和复审记录，三者都绑定当前代码树。套件不提供合并入口，Claude Code 的钩子拒绝直接 `gh pr merge`（别的宿主里没有这层钩子，只有 git 的 pre-push 钩子生效，同样不得直接合并）；合并按项目约定的入口，并等 CI 全部通过。项目没有约定入口时由用户合并或由用户指定入口。
 - `pr`：`gate.mjs` 通过后即可推送，推送核对只要求静态检查和与当前代码一致的测试记录。CI 在 PR 最终提交上全部通过（每项检查成功、跳过或中性；一项都没有视为未通过）后按上表分档审查并登记，PR 未打开或 CI 未全过时拒绝登记：
   - 代码复审：`review.mjs pass|fail --pr <编号> --kind code --reviewer <名> --report <报告> --summary "<一句话>"`。
   - 一致性审：同上，`--kind consistency`；按分档可延期时用 `review.mjs defer --pr <编号> --kind consistency --reason "<理由>"`。

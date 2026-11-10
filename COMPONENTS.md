@@ -20,8 +20,8 @@
 | impeccable | <https://github.com/pbakaus/impeccable> | 4.8.2（提交 ec229b4，2026-11-10） | Apache-2.0 | 已收录：内部技能 `skills/impeccable/` 和四个 `impeccable-*` 子代理 |
 | archify | <https://github.com/tt-a1i/archify> | 3.2.0（提交 7e45f36，2026-11-10） | Apache-2.0 | 已收录：内部技能 `skills/archify/`（不含示例成品页） |
 | feature-dev | <https://github.com/anthropics/claude-plugins-official>（`plugins/feature-dev`） | 1.0.1 | Apache-2.0 | 已收录：`code-explorer`、`code-architect`、`code-reviewer` 三个子代理 |
-| ponytail | <https://github.com/DietrichGebert/ponytail> | 5.3.3（提交 96608e0，2026-10-29） | MIT | 已收录（改写）：入口技能的方法文档 `build.md`（最小改动规则）、`self-review.md`（推送前自查清单） |
-| agent-skills | <https://github.com/addyosmani/agent-skills> | 0.6.15（提交 301b02b，2026-11-01） | MIT | 已收录（改写）：入口技能的方法文档 `planning.md`、`debugging.md`、`review.md`，以及 `build.md` 的逐片循环 |
+| ponytail | <https://github.com/DietrichGebert/ponytail> | 5.3.3（提交 96608e0，2026-10-29） | MIT | 已收录（翻译和改写）：入口技能的方法文档 `build.md`（最小改动规则）、`self-review.md`（推送前自查清单） |
+| agent-skills | <https://github.com/addyosmani/agent-skills> | 0.6.15（提交 301b02b，2026-11-01） | MIT | 已收录（翻译和改写）：入口技能的方法文档 `planning.md`、`debugging.md`、`review.md`，以及 `build.md` 的逐片循环 |
 
 ## 综合插件怎样生成
 

@@ -35,7 +35,7 @@
 
 - 注释：每个源文件开头的业务职责说明、导出项前的说明照写。除此之外，只注释代码表达不出来的“为什么”，一行为限。
 - 测试：改源文件就要有引用它的测试，并随改动一起改。确实没有可测行为的（只有类型、只做再导出），在豁免表里写理由，不绕过闸门。
-- 不靠屏蔽检查、跳过或删除测试、调低阈值变绿（R4）。
+- 闸门不过就改代码或补测试，变绿的办法按 R4。
 
 ## 4. 每一片的循环
 
@@ -68,4 +68,4 @@
 
 ---
 
-出处：本文第 1、2、5 节的规则改写自 [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) 5.3.3 的 `skills/ponytail/SKILL.md`（MIT 许可，Copyright (c) 2026 DietrichGebert）；第 4 节的循环和规则改写自 [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) 0.6.15 的 `skills/incremental-implementation/SKILL.md`（MIT 许可，Copyright (c) 2025 Addy Osmani）。改动：译为中文并重写；去掉了 ponytail 的常驻模式、级别切换和回复结尾格式；原文“只注释为什么”“琐碎改动不必写测试”两条改为以项目闸门为准（第 3 节）；没有采用 agent-skills 的示例代码。许可全文：[THIRD_PARTY_NOTICES.md](../../../THIRD_PARTY_NOTICES.md)。
+出处：本文第 1、2、5 节的规则改写自 [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) 5.3.3 的 `skills/ponytail/SKILL.md`（MIT 许可，Copyright (c) 2026 DietrichGebert）；第 4 节的循环和规则改写自 [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) 0.6.15 的 `skills/incremental-implementation/SKILL.md`（MIT 许可，Copyright (c) 2025 Addy Osmani）。第 2 节里“第三处用到之前不抽公共代码”“一次性的操作不新建工具文件”两条也取自后者。改动：第 1、2、5 节是对 ponytail 原文的翻译和少量调整，其余按本插件的流程重写；去掉了 ponytail 的常驻模式、级别切换和回复结尾格式；原文“只注释为什么”“琐碎改动不必写测试”两条改为以项目闸门为准（第 3 节）；逐片循环从 agent-skills 原文的“先实现再测试”改为“先写测试再实现”；没有采用 agent-skills 的示例代码。许可全文：[THIRD_PARTY_NOTICES.md](../../../THIRD_PARTY_NOTICES.md)。

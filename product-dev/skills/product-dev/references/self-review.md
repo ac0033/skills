@@ -52,4 +52,4 @@
 
 ---
 
-出处：本文第 1 到 4 节的检查项、核实要求和分类改写自 [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) 5.3.3 的 `skills/ponytail-review/SKILL.md`（MIT 许可，Copyright (c) 2026 DietrichGebert）。改动：译为中文并重写；从“应用户要求出一份评审报告”改为“作者推送前自查并直接修”，去掉了原文的报告格式和结尾裁决；新增本项目特有的检查项；写明它不算独立复审。许可全文：[THIRD_PARTY_NOTICES.md](../../../THIRD_PARTY_NOTICES.md)。
+出处：本文第 1 到 4 节的检查项、核实要求和分类改写自 [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) 5.3.3 的 `skills/ponytail-review/SKILL.md`（MIT 许可，Copyright (c) 2026 DietrichGebert）。改动：第 1 到 3 节的检查项是对原文的翻译和少量调整；从“应用户要求出一份评审报告”改为“作者推送前自查并直接修”，去掉了原文的报告格式和结尾裁决；新增本项目特有的检查项；写明它不算独立复审。许可全文：[THIRD_PARTY_NOTICES.md](../../../THIRD_PARTY_NOTICES.md)。

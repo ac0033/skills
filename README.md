@@ -28,15 +28,15 @@ cd skills
 
 ### 综合插件收录的第三方内容
 
-`product-dev/` 里收录了下列项目的内容。前三项是原文：我们只改了两个技能文件头的可见性字段（并加一行改动说明），没有收录 archify 的示例成品页和 impeccable 的会话钩子，其余原样。后两项是改写：入口技能的方法文档参考它们的方法，译为中文并按本插件的流程重写，每份文件末尾注明出处和改动，没有收录它们的原文件。impeccable 的启动脚本首次运行时会联网下载它的引擎程序，archify 带有联网的更新检查，详见声明。逐项的来源、版本、改动、版权声明和许可全文见 [product-dev/THIRD_PARTY_NOTICES.md](product-dev/THIRD_PARTY_NOTICES.md)。
+`product-dev/` 里收录了下列项目的内容。前三项是原文：我们只改了两个技能文件头的可见性字段（并加一行改动说明），没有收录 archify 的示例成品页和 impeccable 的会话钩子，其余原样。后两项是翻译和改写：入口技能的方法文档取用它们的方法，译为中文并按本插件的流程调整（部分段落接近直译），每份文件末尾注明出处和改动，没有收录它们的原文件。impeccable 的启动脚本首次运行时会联网下载它的引擎程序，archify 带有联网的更新检查，详见声明。逐项的来源、版本、改动、版权声明和许可全文见 [product-dev/THIRD_PARTY_NOTICES.md](product-dev/THIRD_PARTY_NOTICES.md)。
 
 | 项目 | 收录内容 | 许可 |
 |---|---|---|
 | [impeccable](https://github.com/pbakaus/impeccable) 4.8.2 | 界面设计技能和它的四个子代理 | Apache-2.0 |
 | [archify](https://github.com/tt-a1i/archify) 3.2.0 | 图表技能（含渲染器，不含示例成品页） | Apache-2.0，内含的品牌标识、字体等另有各自条款 |
 | [feature-dev](https://github.com/anthropics/claude-plugins-official) 1.0.1 | 代码探索、方案设计、代码复审三个子代理 | Apache-2.0 |
-| [ponytail](https://github.com/DietrichGebert/ponytail) 5.3.3 | 改写：最小改动规则、推送前自查清单 | MIT |
-| [agent-skills](https://github.com/addyosmani/agent-skills) 0.6.15 | 改写：任务拆解、逐片循环、调试、代码评审与安全清单 | MIT |
+| [ponytail](https://github.com/DietrichGebert/ponytail) 5.3.3 | 翻译和改写：最小改动规则、推送前自查清单 | MIT |
+| [agent-skills](https://github.com/addyosmani/agent-skills) 0.6.15 | 翻译和改写：任务拆解、逐片循环、调试、代码评审与安全清单 | MIT |
 
 ### 外部工具
 

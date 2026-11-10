@@ -2,7 +2,7 @@
 
 `product-dev` 插件的自有内容（入口技能及其方法文档、插件清单、工程套件、产品设计技能组）以 MIT 许可发布，版权人与许可全文见 [LICENSE](LICENSE)。
 
-插件还收录了下列第三方项目的内容。它们各自保留原许可，不受上面的 MIT 许可覆盖。第 1 到 3 项是原文：由仓库的 `tools/build-plugin.mjs` 从原版复制，除本文件写明的改动外不做修改，版本和内容哈希记录在 [BUILD.lock.json](BUILD.lock.json)。第 4、5 项是改写：入口技能的方法文档参考这两个项目的方法，译为中文并按本插件的流程重写，没有收录它们的原文件；每份改写文件的末尾注明了出处和改动。
+插件还收录了下列第三方项目的内容。它们各自保留原许可，不受上面的 MIT 许可覆盖。第 1 到 3 项是原文：由仓库的 `tools/build-plugin.mjs` 从原版复制，除本文件写明的改动外不做修改，版本和内容哈希记录在 [BUILD.lock.json](BUILD.lock.json)。第 4、5 项是翻译和改写：入口技能的方法文档取用这两个项目的方法，译为中文并按本插件的流程调整，部分段落接近原文的直译，没有收录它们的原文件；每份改写文件的末尾注明了出处和改动。
 
 ## 1. impeccable
 
@@ -58,7 +58,7 @@
 - 本插件里的改写文件：
   - [skills/product-dev/references/build.md](skills/product-dev/references/build.md)：第 1、2、5 节
   - [skills/product-dev/references/self-review.md](skills/product-dev/references/self-review.md)
-- 我们的改动：译为中文并重写，不是逐句翻译；去掉了常驻模式、级别切换、回复结尾格式和评审报告格式；原文“只注释为什么”“琐碎改动不必写测试”两条改为以项目闸门为准；评审清单从“应要求出报告”改为“作者推送前自查”，并加了本项目特有的检查项。没有收录 ponytail 的钩子、命令和其余技能。
+- 我们的改动：译为中文。`build.md` 第 1、2、5 节和 `self-review.md` 第 1 到 3 节接近原文的逐句翻译，只做了少量调整；其余部分按本插件的流程重写。去掉了常驻模式、级别切换、回复结尾格式和评审报告格式；原文“只注释为什么”“琐碎改动不必写测试”两条改为以项目闸门为准；评审清单从“应要求出报告”改为“作者推送前自查”，并加了本项目特有的检查项。没有收录 ponytail 的钩子、命令和其余技能。
 
 ## 5. agent-skills
 
@@ -72,7 +72,7 @@
   - [skills/product-dev/references/build.md](skills/product-dev/references/build.md)：第 4 节
   - [skills/product-dev/references/debugging.md](skills/product-dev/references/debugging.md)
   - [skills/product-dev/references/review.md](skills/product-dev/references/review.md)：第 3、4、6 节和任务书里的评审步骤
-- 我们的改动：译为中文并重写，不是逐句翻译；文件位置、任务字段、严重级别、报告格式和登记要求按本插件的工程套件重写；没有采用原文的输出路径（`tasks/`）、git 流程、示例代码和评审时限；修 bug 时失败测试排在修复之前；复审者只读，变异实验改由作者执行。没有收录 agent-skills 的其余技能、命令、钩子和子代理。
+- 我们的改动：译为中文。各文件的结构、表格和步骤贴近原文（依赖图、任务大小表、调试六步、五个评审维度等），措辞是翻译加改写；文件位置、任务字段、严重级别、报告格式和登记要求按本插件的工程套件重写；逐片循环从“先实现再测试”改为“先写测试再实现”；没有采用原文的输出路径（`tasks/`）、git 流程、示例代码和评审时限；修 bug 时失败测试排在修复之前；复审者只读，变异实验改由作者执行。没有收录 agent-skills 的其余技能、命令、钩子和子代理。
 
 ## 许可全文
 

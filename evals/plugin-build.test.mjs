@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { test } from 'node:test';
-import { build, ENTRY_SKILL, HANDWRITTEN, hashFiles, hideSkill, isHandwritten, PLUGIN_DIR, readTree, ROOT } from '../tools/build-plugin.mjs';
+import { assertNotHandwritten, build, ENTRY_SKILL, HANDWRITTEN, hashFiles, hideSkill, isHandwritten, PLUGIN_DIR, readTree, ROOT } from '../tools/build-plugin.mjs';
 
 const PLUGIN = path.join(ROOT, PLUGIN_DIR);
 const LOCK = 'BUILD.lock.json';
@@ -68,6 +68,16 @@ test('手写部分：构建不生成、不改动、不删除手写文件，锁�
     build({ out, log: () => {} });
     assert.deepEqual([...readTree(out).keys()].filter(isHandwritten), []);
   });
+});
+
+test('手写保护：生成部分落在手写路径或它的上级目录时构建报错', () => {
+  const part = (dest, files, listFiles) => ({ id: 'x', dest, listFiles, files: new Map(files.map((f) => [f, Buffer.from('')])) });
+  assert.throws(() => assertNotHandwritten(part(`skills/${ENTRY_SKILL}`, ['a.md'])), /手写路径/);
+  assert.throws(() => assertNotHandwritten(part(`skills/${ENTRY_SKILL}/references`, ['a.md'])), /手写路径/);
+  assert.throws(() => assertNotHandwritten(part('skills', ['other/SKILL.md'])), /手写路径/, '清空 skills 会连入口一起删掉');
+  assert.throws(() => assertNotHandwritten(part('.claude-plugin', ['plugin.json'], true)), /手写路径/);
+  assert.doesNotThrow(() => assertNotHandwritten(part('skills/engineering-kit', ['SKILL.md'])));
+  assert.doesNotThrow(() => assertNotHandwritten(part('agents', ['code-reviewer.md'], true)));
 });
 
 test('锁文件：每个部分的文件数和内容哈希与锁文件相符，子代理目录没有来历不明的文件', () => {

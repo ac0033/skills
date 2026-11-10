@@ -167,6 +167,14 @@ function thirdPartyParts(vendor) {
   ];
 }
 
+/** 任何生成部分都不得落在手写路径上，否则构建时的清空和写入会毁掉手写内容；落上去就报错。 */
+export function assertNotHandwritten(part) {
+  const paths = [part.dest, ...[...part.files.keys()].map((rel) => `${part.dest}/${rel}`)];
+  // 目标目录是手写目录的上级时（如 skills），清空它同样会删掉手写内容
+  const hit = paths.find(isHandwritten) || (!part.listFiles && `${ENTRY_DIR}/`.startsWith(`${part.dest}/`) ? part.dest : undefined);
+  if (hit) throw new Error(`生成部分 ${part.id} 会覆盖手写路径 ${hit}`);
+}
+
 const lockEntry = ({ files, listFiles, thirdParty, ...rest }) => ({
   ...rest, fileCount: files.size, sha256: hashFiles(files), ...(listFiles ? { files: [...files.keys()].sort() } : {}),
   ...(files.executable?.length ? { executable: [...files.executable].sort() } : {}),
@@ -181,9 +189,7 @@ export function build({ root = ROOT, out = path.join(root, PLUGIN_DIR), vendor =
 
   const write = (part) => {
     const dest = path.join(out, part.dest);
-    // 任何生成部分都不得落在手写路径上，否则下面的清空和写入会毁掉手写内容
-    const hit = isHandwritten(part.dest) ? part.dest : [...part.files.keys()].map((rel) => `${part.dest}/${rel}`).find(isHandwritten);
-    if (hit) throw new Error(`生成部分 ${part.id} 会覆盖手写路径 ${hit}`);
+    assertNotHandwritten(part);
     if (!part.listFiles) fs.rmSync(dest, { recursive: true, force: true });
     for (const [rel, buf] of part.files) {
       // dest 本身是文件（如 LICENSE）时直接写到 dest
