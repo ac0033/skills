@@ -17,7 +17,7 @@ export function buildPortableSkill(destination) {
   try {
     const payload = path.join(staging, payloadPath);
     fs.mkdirSync(payload, { recursive: true });
-    for (const part of ['skills', 'agents', 'LICENSE', 'THIRD_PARTY_NOTICES.md']) {
+    for (const part of ['skills', 'agents', 'LICENSE', 'THIRD_PARTY_NOTICES.md', 'BUILD.lock.json']) {
       fs.cpSync(path.join(plugin, part), path.join(payload, part), {
         recursive: true,
         filter: (file) => {

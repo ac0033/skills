@@ -8,9 +8,9 @@ Product Dev 也提供一个可独立导入的 **Agent Skills 包**。整个包�
 
 ### WorkBuddy
 
-在「技能」页面选择「上传 / 创建」，导入下载的 `product-dev-skill.zip`。按提示完成检查和安装，然后在任务中选择 `product-dev`。使用本地开发流程时，在能读取目标项目、运行本地命令的工作环境里打开任务。
+在「技能」页面选择「添加技能 → 上传技能」，导入下载的 `product-dev-skill.zip`。按提示完成检查和安装，然后在任务中选择 `product-dev`。使用本地开发流程时，在能读取目标项目、运行本地命令的工作环境里打开任务。
 
-[WorkBuddy 技能说明](https://intl.cloud.tencent.com/zh/document/product/1316/84503)
+[WorkBuddy 技能说明](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)
 
 ### pi
 
@@ -24,7 +24,7 @@ Product Dev 也提供一个可独立导入的 **Agent Skills 包**。整个包�
 
 解压 ZIP，将整个 `product-dev` 文件夹放到项目的 `.opencode/skills/`，或放到用户目录的 `~/.config/opencode/skills/`。打开项目后告诉 OpenCode「加载 `product-dev` 技能，先梳理这个功能的需求和验收标准」。它通过内置 `skill` 工具加载入口。
 
-[OpenCode 技能说明](https://docs.opencode.ai/docs/skills/)
+[OpenCode 技能说明](https://opencode.ai/docs/skills)
 
 ### 其他支持 Agent Skills 的宿主
 
@@ -39,6 +39,8 @@ Product Dev 也提供一个可独立导入的 **Agent Skills 包**。整个包�
 - 需求、方案和评审文档依赖读取项目文件。要改代码、运行测试或安装工程套件，还需要文件写入、终端以及项目所用工具。
 - 浏览器走查、独立复审等步骤需要宿主提供相应工具或独立上下文。缺少工具时，按[完整工作流](product-dev/skills/product-dev/SKILL.md)里的替代方式交接，并标明尚未完成的验证。
 - `engineering-kit` 随包提供，Product Dev 可以读取规则、调用随附脚本。项目要使用套件的 Git 钩子、测试闸门和文档模板时，仍需按[工程套件说明](product-dev/skills/engineering-kit/SKILL.md)把它们同步进项目。已有自己的检查机制时沿用项目规则。
+
+便携包里的构建锁记录原生插件的来源和构建结果。便携包会将内部技能文件改名为 `WORKFLOW.md`，供入口按路径加载。
 
 ## 从源码生成
 
