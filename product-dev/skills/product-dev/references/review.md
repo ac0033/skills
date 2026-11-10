@@ -130,4 +130,4 @@
 
 ---
 
-出处：本文第 3 节的五个维度、结构改法、改动规模、依赖检查，第 6 节的分级思路和“先报影响大的”，以及任务书里的评审步骤，改写自 [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) 0.6.15 的 `skills/code-review-and-quality/SKILL.md`；第 4 节的安全清单改写自同一项目的 `skills/security-and-hardening/SKILL.md` 和 `references/security-checklist.md`（MIT 许可，Copyright (c) 2025 Addy Osmani）。改动：译为中文并重写；严重级别改为高、中、低、提示四级；复审者只读，变异实验改由作者执行；派发、任务书、报告格式和登记要求按本插件的工程套件闸门新写；没有采用原文的示例代码和评审时限要求。版权声明与许可全文见插件根的 [THIRD_PARTY_NOTICES.md](../../../THIRD_PARTY_NOTICES.md)。
+出处：本文第 3 节的五个维度、结构改法、改动规模、依赖检查，第 6 节的分级思路和“先报影响大的”，以及任务书里的评审步骤，改写自 [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) 0.6.15 的 `skills/code-review-and-quality/SKILL.md`；第 4 节的安全清单改写自同一项目的 `skills/security-and-hardening/SKILL.md` 和 `references/security-checklist.md`（MIT 许可，Copyright (c) 2025 Addy Osmani）。改动：译为中文并重写；严重级别改为高、中、低、提示四级；复审者只读，变异实验改由作者执行；派发、任务书、报告格式和登记要求按本插件的工程套件闸门新写；没有采用原文的示例代码和评审时限要求。许可全文：[THIRD_PARTY_NOTICES.md](../../../THIRD_PARTY_NOTICES.md)。

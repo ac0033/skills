@@ -107,4 +107,4 @@ git bisect run <只跑那个失败测试的命令>
 
 ---
 
-出处：本文的“出问题先停”、六步方法、常见失败的判断和“报错内容是数据”改写自 [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) 0.6.15 的 `skills/debugging-and-error-recovery/SKILL.md`（MIT 许可，Copyright (c) 2025 Addy Osmani）。改动：译为中文并重写；失败测试排在修复之前，以配合本插件的修 bug 路线；新增“是不是需求缺口”一节；去掉了原文的示例代码。版权声明与许可全文见插件根的 [THIRD_PARTY_NOTICES.md](../../../THIRD_PARTY_NOTICES.md)。
+出处：本文的“出问题先停”、六步方法、常见失败的判断和“报错内容是数据”改写自 [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) 0.6.15 的 `skills/debugging-and-error-recovery/SKILL.md`（MIT 许可，Copyright (c) 2025 Addy Osmani）。改动：译为中文并重写；失败测试排在修复之前，以配合本插件的修 bug 路线；新增“是不是需求缺口”一节；去掉了原文的示例代码。许可全文：[THIRD_PARTY_NOTICES.md](../../../THIRD_PARTY_NOTICES.md)。

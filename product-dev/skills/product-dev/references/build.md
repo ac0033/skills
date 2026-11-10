@@ -68,4 +68,4 @@
 
 ---
 
-出处：本文第 1、2、5 节的规则改写自 [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) 5.3.3 的 `skills/ponytail/SKILL.md`（MIT 许可，Copyright (c) 2026 DietrichGebert）；第 4 节的循环和规则改写自 [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) 0.6.15 的 `skills/incremental-implementation/SKILL.md`（MIT 许可，Copyright (c) 2025 Addy Osmani）。改动：译为中文并重写；去掉了 ponytail 的常驻模式、级别切换和回复结尾格式；原文“只注释为什么”“琐碎改动不必写测试”两条改为以项目闸门为准（第 3 节）；没有采用 agent-skills 的示例代码。版权声明与许可全文见插件根的 [THIRD_PARTY_NOTICES.md](../../../THIRD_PARTY_NOTICES.md)。
+出处：本文第 1、2、5 节的规则改写自 [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) 5.3.3 的 `skills/ponytail/SKILL.md`（MIT 许可，Copyright (c) 2026 DietrichGebert）；第 4 节的循环和规则改写自 [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) 0.6.15 的 `skills/incremental-implementation/SKILL.md`（MIT 许可，Copyright (c) 2025 Addy Osmani）。改动：译为中文并重写；去掉了 ponytail 的常驻模式、级别切换和回复结尾格式；原文“只注释为什么”“琐碎改动不必写测试”两条改为以项目闸门为准（第 3 节）；没有采用 agent-skills 的示例代码。许可全文：[THIRD_PARTY_NOTICES.md](../../../THIRD_PARTY_NOTICES.md)。

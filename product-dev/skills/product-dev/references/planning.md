@@ -85,4 +85,4 @@
 
 ---
 
-出处：本文的方法（先读后拆、依赖图、纵向切片、任务大小、检查点、并行与串行）改写自 [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) 0.6.15 的 `skills/planning-and-task-breakdown/SKILL.md`，切片策略里的“约定先行、风险先行”取自同一项目的 `skills/incremental-implementation/SKILL.md`（MIT 许可，Copyright (c) 2025 Addy Osmani）。改动：译为中文并重写；计划文件的位置、任务字段、状态用词按本插件的工程套件模板；没有采用原文的 `tasks/` 输出路径和外部任务跟踪器约定；检查点与用户确认按 R10、R2 处理。版权声明与许可全文见插件根的 [THIRD_PARTY_NOTICES.md](../../../THIRD_PARTY_NOTICES.md)。
+出处：本文的方法（先读后拆、依赖图、纵向切片、任务大小、检查点、并行与串行）改写自 [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) 0.6.15 的 `skills/planning-and-task-breakdown/SKILL.md`，切片策略里的“约定先行、风险先行”取自同一项目的 `skills/incremental-implementation/SKILL.md`（MIT 许可，Copyright (c) 2025 Addy Osmani）。改动：译为中文并重写；计划文件的位置、任务字段、状态用词按本插件的工程套件模板；没有采用原文的 `tasks/` 输出路径和外部任务跟踪器约定；检查点与用户确认按 R10、R2 处理。许可全文：[THIRD_PARTY_NOTICES.md](../../../THIRD_PARTY_NOTICES.md)。
