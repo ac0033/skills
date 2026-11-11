@@ -2,9 +2,23 @@
 
 Product Dev 也提供一个可独立导入的 **Agent Skills 包**。整个包只注册 `product-dev` 入口，工作流需要的内部技能、子代理任务书、工程脚本和模板都在包里。不同宿主可以使用同一个包。
 
-[下载 Product Dev 技能包](https://github.com/ac0033/skills/releases/download/product-dev-portable-v0.2.2/product-dev-skill.zip)
+[下载 Product Dev 技能包](https://github.com/ac0033/skills/releases/download/product-dev-portable-v0.2.3/product-dev-skill.zip)
 
 ## 按宿主安装
+
+<a id="deepseek-harness"></a>
+
+### DeepSeek Harness
+
+推荐安装 npm 包 `dsh-product-dev`，不需要下载 ZIP。在 **Plugins → Add plugin** 输入 `dsh-product-dev@0.2.3`，或在终端运行下面的命令，然后启用插件。
+
+```bash
+dsh plugin --profile web add dsh-product-dev@0.2.3
+```
+
+不想装插件时，解压 ZIP，将整个 `product-dev` 文件夹放到项目的 `.dsh/skills/`，或放到用户目录的 `~/.dsh/skills/`。DSH 只识别技能目录下第一层的 `product-dev/SKILL.md`，不要再套一层文件夹。两种方式都在输入框用 `/product-dev` 加任务来调用。
+
+[DeepSeek Harness 技能说明](https://github.com/deepseek-ai/deepseek-harness/blob/main/docs/subsystems/skills.md)
 
 ### WorkBuddy
 
@@ -51,3 +65,9 @@ node product-dev/tools/build-portable-skill.mjs ./dist/product-dev
 ```
 
 将整个输出目录放到宿主技能目录。需要 ZIP 时，压缩 `product-dev` 文件夹，让 ZIP 解压后得到 `product-dev/SKILL.md` 和同级的 `references/`。
+
+DeepSeek Harness 的 npm 包用下面的命令装配，输出目录就是执行 `npm publish` 的目录。
+
+```bash
+node product-dev/tools/build-dsh-package.mjs ./dist/dsh-product-dev
+```

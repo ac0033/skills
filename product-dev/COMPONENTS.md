@@ -1,6 +1,6 @@
 # 组件清单
 
-Product Dev 由一个综合插件和多个组件构成。综合插件（[plugin/](plugin/skills/product-dev/SKILL.md)，0.2.2：入口技能含全部路线，每一步写明目标、原则、工具和过关证据）是各组件内容按流程重组后的结合，也是唯一接入 agent 的部分；组件各自完整、可单独使用，只存档，需要时由使用者自己安装到 agent。
+Product Dev 由一个综合插件和多个组件构成。综合插件（[plugin/](plugin/skills/product-dev/SKILL.md)，0.2.3：入口技能含全部路线，每一步写明目标、原则、工具和过关证据）是各组件内容按流程重组后的结合，也是唯一接入 agent 的部分；组件各自完整、可单独使用，只存档，需要时由使用者自己安装到 agent。
 
 ## 自有组件
 
@@ -26,3 +26,5 @@ Product Dev 由一个综合插件和多个组件构成。综合插件（[plugin/
 ## 综合插件怎样生成
 
 插件分两部分。手写的部分：入口技能目录 `plugin/skills/product-dev/`（入口和它的方法文档）、两份插件清单、第三方声明；构建脚本不生成、不覆盖、不删除它们。取自组件的部分不手改，由 `node product-dev/tools/build-plugin.mjs`（在仓库根目录运行）从组件复制生成，各部分的来源、版本、文件数和内容哈希记录在 [BUILD.lock.json](plugin/BUILD.lock.json)。重新构建第三方原文部分时，把来源仓库按上表的提交检出到 `product-dev/vendor/<组件名>/`（该目录被 git 忽略）；没有它时，脚本只重建自有组件部分，第三方部分保持仓库里已提交的内容。构建结果由 `node --test product-dev/evals/plugin-build.test.mjs` 核对，入口每一步的工具是否真实存在由 `node --test product-dev/evals/entry.test.mjs` 核对。
+
+插件成品之外还有两种分发形态，都由插件成品装配，不另存内容：给其他 Agent 的技能包（`tools/build-portable-skill.mjs`），以及给 DeepSeek Harness 的 npm 包（[dsh/](dsh/README.md) 里是手写的包清单和注册入口，`tools/build-dsh-package.mjs` 把技能包装进去）。

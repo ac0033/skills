@@ -1,6 +1,6 @@
 # Product Dev
 
-**面向 Claude Code 和 Codex 的产品开发工作流（0.2.2）。** 从产品想法、功能需求或 bug 出发，Product Dev 会先查项目现状，判断该走哪条路线，再把需求确认、方案设计、实现、验证和审查接成一条可接续的流程。
+**面向 Claude Code、Codex 和 DeepSeek Harness 的产品开发工作流（0.2.3）。** 从产品想法、功能需求或 bug 出发，Product Dev 会先查项目现状，判断该走哪条路线，再把需求确认、方案设计、实现、验证和审查接成一条可接续的流程。
 
 [快速开始](#快速开始) · [怎么用](#怎么用) · [流程图](#流程图) · [参考与许可](#参考与许可)
 
@@ -41,6 +41,16 @@ codex plugin add product-dev@ac0033-skills
 ```
 
 在 Codex 桌面端的输入框技能列表选择插件下的 `product-dev`。CLI 中可用 `/skills` 选择 `product-dev:product-dev`。桌面端若仍显示旧列表，可重启后再试。
+
+### DeepSeek Harness
+
+在网页版或桌面版打开 **Plugins → Add plugin**，输入下面的包名和版本号，安装后启用。
+
+```text
+dsh-product-dev@0.2.3
+```
+
+在输入框用 `/product-dev` 加上你的任务。命令行安装和不装插件的用法见[其他 Agent 安装指南](INSTALL.md#deepseek-harness)。
 
 ### 其他 Agent
 
