@@ -22,14 +22,6 @@ Codex（需要支持 plugin 子命令的客户端）：
 
 已有用户保持原市场和插件名，按 [升级说明](https://github.com/ac0033/product-dev#快速开始) 更新，无需重新添加市场。DSH/npm 与便携技能包安装见 [Product Dev 安装指南](https://github.com/ac0033/product-dev/blob/main/INSTALL.md)。
 
-## 维护入口
-
-- .claude-plugin/marketplace.json：Claude Code 市场。
-- .agents/plugins/marketplace.json：Codex 市场。
-- tests/ 与 .github/workflows/：市场校验；检查插件身份、来源、版本和公开资源。
-
-收录工具时，在其独立仓库维护源码和发布，再向两份市场清单登记实际插件位置，并更新上方工具表。原仓库的 [历史发布](https://github.com/ac0033/skills/releases) 和已有下载链接继续可用。
-
 ## 许可
 
 导航与市场自有内容以 [MIT](LICENSE) 发布。工具及其第三方内容的许可见各自仓库。
