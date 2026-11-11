@@ -1,4 +1,4 @@
-name: Plugin checks
+name: Marketplace checks
 
 on:
   pull_request:
@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   test:
-    name: Plugin tests (${{ matrix.os }})
+    name: Marketplace tests (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -25,4 +25,4 @@ jobs:
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: '24'
-      - run: node --test product-dev/evals/*.test.mjs
+      - run: node --test tests/*.test.mjs

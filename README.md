@@ -1,36 +1,27 @@
 # ac0033 Skills
 
-面向 Claude Code、Codex、DeepSeek Harness 和其他 Agent 的工具仓库。每个工具占一个顶层目录，说明、源码和测试都在自己的目录里。
+面向 Claude Code、Codex、DeepSeek Harness 和其他 Agent 的工具导航与插件市场。各工具在自己的仓库维护，按需安装。
 
 ## 工具
 
 | 工具 | 当前版本 | 用途 | 从哪里开始 |
 | --- | --- | --- | --- |
-| [Product Dev](product-dev/README.md) | [0.2.4](https://github.com/ac0033/skills/releases/tag/product-dev-v0.2.4) | 产品开发插件：需求与 PRD、原型与界面、架构图表、开发测试、审查与交付；支持新项目、加功能、修 bug 和工程套件维护 | [快速开始](product-dev/README.md#快速开始) |
+| [Product Dev](https://github.com/ac0033/product-dev) | [0.2.5](https://github.com/ac0033/product-dev/releases/tag/v0.2.5) | 从需求、原型和架构到开发、测试、审查与交付；支持新项目、加功能、修 bug 和工程套件维护 | [安装与使用](https://github.com/ac0033/product-dev#快速开始) |
 
-## 目录结构
+## 使用市场
 
-```text
-skills/
-├── .claude-plugin/marketplace.json    Claude Code 插件市场清单，登记全部可安装的工具
-├── .agents/plugins/marketplace.json   Codex 插件市场清单
-├── .github/workflows/                 各工具的检查
-├── product-dev/                       Product Dev 的全部内容
-│   ├── plugin/                        插件成品，市场清单指向这里
-│   ├── components/                    自有组件的源
-│   ├── dsh/                           DeepSeek Harness 的 npm 包
-│   ├── tools/  evals/  docs/          构建脚本、测试、图片
-│   └── README.md  INSTALL.md  COMPONENTS.md
-└── LICENSE
-```
+Claude Code：
 
-## 添加新工具
+    claude plugin marketplace add ac0033/skills
+    claude plugin install product-dev@ac0033-skills
 
-1. 在仓库根新建一个以工具名命名的目录，说明、源码、构建脚本和测试都放在里面，不往仓库根和其他工具的目录里放文件。
-2. 工具是可安装的插件时，在两份市场清单里各加一项，`source` 指向工具目录里的插件成品。
-3. 在 `.github/workflows/` 里加上这个工具的检查命令。
-4. 在上面的工具表里加一行，列出该工具的当前版本和发布记录链接；发布更新时同步维护。
+Codex（需要支持 plugin 子命令的客户端）：
+
+    codex plugin marketplace add ac0033/skills
+    codex plugin add product-dev@ac0033-skills
+
+已有用户保持原市场和插件名，按 [升级说明](https://github.com/ac0033/product-dev#快速开始) 更新，无需重新添加市场。DSH/npm 与便携技能包安装见 [Product Dev 安装指南](https://github.com/ac0033/product-dev/blob/main/INSTALL.md)。
 
 ## 许可
 
-仓库自有内容以 [MIT](LICENSE) 发布。各工具收录的第三方内容保留原许可，见工具目录里的第三方声明。
+导航与市场自有内容以 [MIT](LICENSE) 发布。工具及其第三方内容的许可见各自仓库。
