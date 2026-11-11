@@ -51,4 +51,4 @@ user-invocable: false
 
 依据[实施准备度](references/artifacts.md#implementation)给出 `READY`、`READY_WITH_LIMITATIONS` 或 `BLOCKED`。文档齐全不等于可以实施；设计完成也不等于代码实现、真实验证或发布完成。
 
-向用户交付实际入口、设计结论、证据、未决事项和下一责任人。用户未授权工程实现时，交接后结束设计任务。技能包维护或首次试用时采用[验收用例](https://github.com/ac0033/skills/blob/main/evals/cases.md)，不要每个项目重复测试技能系统本身。
+向用户交付实际入口、设计结论、证据、未决事项和下一责任人。用户未授权工程实现时，交接后结束设计任务。技能包维护或首次试用时采用[验收用例](https://github.com/ac0033/skills/blob/main/product-dev/evals/cases.md)，不要每个项目重复测试技能系统本身。
