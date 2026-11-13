@@ -6,13 +6,13 @@
   "plugins": [
     {
       "name": "product-dev",
-      "version": "0.3.1",
+      "version": "0.3.2",
       "description": "产品开发插件：需求与 PRD、原型与界面、架构图表、开发测试、工程闸门、独立审查与交付。支持从零做产品、加功能、修 bug、文档修改和工程套件维护，也可只做设计、复审或验收；按项目规则与授权推进，保留产物和验证证据。",
       "source": {
         "source": "git-subdir",
         "url": "https://github.com/ac0033/product-dev.git",
         "path": "plugin",
-        "ref": "v0.3.1"
+        "ref": "v0.3.2"
       },
       "policy": {
         "installation": "AVAILABLE",

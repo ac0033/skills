@@ -6,7 +6,7 @@
 
 | 工具 | 当前版本 | 用途 | 从哪里开始 |
 | --- | --- | --- | --- |
-| [Product Dev](https://github.com/ac0033/product-dev) | [0.3.1](https://github.com/ac0033/product-dev/releases/tag/v0.3.1) | 从需求、原型和架构到开发、测试、审查与交付；支持新项目、加功能、修 bug 和工程套件维护 | [安装与使用](https://github.com/ac0033/product-dev#快速开始) |
+| [Product Dev](https://github.com/ac0033/product-dev) | [0.3.2](https://github.com/ac0033/product-dev/releases/tag/v0.3.2) | 从需求、原型和架构到开发、测试、审查与交付；支持新项目、加功能、修 bug 和工程套件维护 | [安装与使用](https://github.com/ac0033/product-dev#快速开始) |
 
 ## 使用市场
 
